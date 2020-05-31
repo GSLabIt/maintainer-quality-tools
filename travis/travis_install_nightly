@@ -2,6 +2,10 @@
 
 set -e
 
+echo 'inside script'
+echo ${LINT_CHECK} ${HOME} ${VERSION}
+
+
 if [ "${LINT_CHECK}" != "0" ]; then
     pip install -Uq flake8=="3.4.1" Click pylint-mccabe pbr
 

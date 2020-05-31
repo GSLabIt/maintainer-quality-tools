@@ -3,7 +3,7 @@
 set -e
 
 echo 'inside script'
-echo '{env.LINT_CHECK}' ${env.HOME} ${env.VERSION}
+echo ${LINT_CHECK} ${HOME} ${VERSION}
 
 
 if [ "${LINT_CHECK}" != "0" ]; then

@@ -177,5 +177,5 @@ ls -l ${HOME}
 echo "Content of ${HOME}/dependencies:"
 mkdir -p ${HOME}/dependencies && ls -l ${HOME}/dependencies
 
-echo whoami
+whoami
 set +e

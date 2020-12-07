@@ -128,7 +128,6 @@ def main(argv=None, database=None):
 
     print("Pushing .pot files changes to GitHub")
     print(MERGEPOT_BRANCH)
-    branch = os.environ.get('TRAVIS_BRANCH', '').replace('refs/heads/', '')
     cmd = [
         'git',
         'push',

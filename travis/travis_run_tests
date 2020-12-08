@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 import os
 import subprocess
 import sys
-from travis_helpers import success_msg, fail_msg
+from travis_helpers import success_msg, fail_msg, MERGEPOT_BRANCH
 
 
 def main(test_list):
@@ -67,7 +67,8 @@ if __name__ == '__main__':
     must_run_makepot = (
         (os.environ.get('MAKEPOT') == '1' or os.environ.get('TRANSIFEX') == '1')
         and not tests_enabled and is_rigth_project
-        and (branch in ('12.0-dev', '14.0-dev') or "ocabot-merge" in branch)
+        # and (branch in ('12.0-dev', '14.0-dev') or "ocabot-merge" in branch)
+        and (branch in MERGEPOT_BRANCH)
         and not is_pull_request and os.environ.get('GITHUB_USER')
         and os.environ.get('GITHUB_EMAIL') and os.environ.get('GITHUB_TOKEN')
     )

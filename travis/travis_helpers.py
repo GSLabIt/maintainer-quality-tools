@@ -9,6 +9,7 @@ GREEN = "\033[1;32m"
 YELLOW = "\033[1;33m"
 YELLOW_LIGHT = "\033[33m"
 CLEAR = "\033[0;m"
+MERGEPOT_BRANCH = ['12.0-dev', '14.0-dev']
 
 
 def colorized(text, color):

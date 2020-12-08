@@ -8,13 +8,11 @@ import subprocess
 import sys
 from six import string_types
 from getaddons import (get_addons, get_modules, get_modules_info, get_dependencies)
-from travis_helpers import success_msg, fail_msg
+from travis_helpers import success_msg, fail_msg, MERGEPOT_BRANCH
 try:
     import ConfigParser
 except ImportError:
     import configparser as ConfigParser
-
-MERGEPOT_BRANCH = ['12.0-dev', '14.0-dev']
 
 
 def has_test_errors(fname, dbname, odoo_version, check_loaded=True):
@@ -497,7 +495,8 @@ def main(argv=None):
     branch = os.environ.get('TRAVIS_BRANCH', '').replace('refs/heads/', '')
     must_run_makepot = (
         os.environ.get('MAKEPOT') == '1' and is_right_project
-        and (branch in MERGEPOT_BRANCH or "ocabot-merge" in branch)
+        # and (branch in MERGEPOT_BRANCH or "ocabot-merge" in branch)
+        and (branch in MERGEPOT_BRANCH)
         and (os.environ.get('TRAVIS_PULL_REQUEST') == 'false')
         and os.environ.get('GITHUB_USER') and os.environ.get('GITHUB_EMAIL')
         and os.environ.get('GITHUB_TOKEN')
